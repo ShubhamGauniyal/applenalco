@@ -1,0 +1,200 @@
+<!-- <form  mat-raised-button color="primary" (ngSubmit)="save()" [formGroup]="demoForm">
+    <div class="search-form">
+    <div class="form-field-allign">
+        
+        <label class="label" >OrderDispatch Date</label>
+           <span class="colon-center">:</span>
+            <input  type="text" [formControl]="dispatchDateValue">
+            <span class="colon-center" *ngIf="hasError('dispatchDateValue', 'required')">
+                DispatchDate is required.
+            </span>
+        
+    </div>
+    <div class="form-field-allign">
+        
+        <label class="label" >OrderTranspoter</label>
+           <span class="colon-center">:</span>
+            <input  type="text" [formControl]="transpoterValue">
+            <span  class="colon-center" *ngIf="hasError('transpoterValue', 'required')">
+                Transpoter is required.
+            </span>
+      
+    </div>
+    <div class="form-field-allign">
+       
+        <label class="label" >OrderVendor Code</label>
+           <span class="colon-center">:</span>
+            <input  type="text" [formControl]="vendorcodeValue">
+            <span class="colon-center"  *ngIf="hasError('vendorcodeValue', 'required')">
+                vendorcode is required.
+            </span>
+        
+    </div>
+
+    <div class="form-field-allign">
+      
+           <label class="label" >Order Number</label> 
+           <span class="colon-center">:</span>
+            <input  type="text" [formControl]="ordernumberValue">
+            <span class="colon-center"  *ngIf="hasError('ordernumberValue', 'required')">
+                ordernumber is required.
+            </span>
+        
+    </div>
+</div>
+    <button  class="search-button" stype='submit' [disabled]="!demoForm.valid">Search</button>
+   
+</form> -->
+
+<div class="delivery-order">
+    <mat-card>
+        <mat-card-content>
+            <h5>Dispatch Managment</h5>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>
+                        <span>Dispatch Date</span>
+                        <span class="colon-center" style="margin-left: 100px;">:</span>
+                        <input type="date" style="width: 184px;" [(ngModel)]="dispatchDate" name="dispatchDate">
+
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        <span> Transpoter </span>
+                        <span class="colon-center" style="margin-left: 102px;">:</span>
+                        <select class="form-select form-select-lg mb-3" [(ngModel)]="transporter"
+                            style="height: 30px;width: 184px;" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        <span> Vendor Code </span>
+                        <span class="colon-center" style="margin-left: 102px;">:</span>
+                        <select class="form-select form-select-lg mb-3" [(ngModel)]="vendorCode"
+                            style="height: 30px;width: 184px;" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label>
+                        <span>Order Number </span>
+                        <span class="colon-center" style="margin-left: 80px;">:</span>
+                        <input type="number" [(ngModel)]="orderNumber">
+                    </label>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-6 offset-md-9">
+                    <span style="margin-left:20px;"><button mat-stroked-button color="primary"
+                            (click)="search()">Search</button></span>
+                </div>
+
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="delivery-order">
+
+
+    <div class="example-container mat-elevation-z8">
+        <mat-card>
+            <mat-table #table [dataSource]="dataSource">
+
+                <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <mat-header-cell *matHeaderCellDef>Sr.No. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                </ng-container>
+
+                <!-- Delivery Date  Column -->
+                <ng-container matColumnDef="deliverydate">
+                    <mat-header-cell *matHeaderCellDef> Delivery Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.deliverydate}} </mat-cell>
+                </ng-container>
+
+                <!-- Order No Column -->
+                <ng-container matColumnDef="orderno">
+                    <mat-header-cell *matHeaderCellDef> Order No </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.orderno}} </mat-cell>
+                </ng-container>
+
+                <!-- Vendor Code Column -->
+                <ng-container matColumnDef="vendorcode">
+                    <mat-header-cell *matHeaderCellDef> Vendor Code </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.vendorcode}} </mat-cell>
+                </ng-container>
+
+                <!-- Vendor Name Column -->
+                <ng-container matColumnDef="vendorname">
+                    <mat-header-cell *matHeaderCellDef> Vendor Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.vendorname}} </mat-cell>
+                </ng-container>
+
+                <!--Route Column -->
+                <ng-container matColumnDef="route">
+                    <mat-header-cell *matHeaderCellDef> Route </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.route}} </mat-cell>
+                </ng-container>
+
+                <!--Transporter Column -->
+                <ng-container matColumnDef="transporter">
+                    <mat-header-cell *matHeaderCellDef> Transporter </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.transporter}} </mat-cell>
+                </ng-container>
+
+                <!--Status Column -->
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+                </ng-container>
+
+                <!--DOQTY Column -->
+                <ng-container matColumnDef="doqty">
+                    <mat-header-cell *matHeaderCellDef> DOQTY </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.doqty}} </mat-cell>
+                </ng-container>
+
+                <!--DIQTY Column -->
+                <ng-container matColumnDef="diqty">
+                    <mat-header-cell *matHeaderCellDef> DIQTY </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.diqty}} </mat-cell>
+                </ng-container>
+
+                <!--BALQTY Column -->
+                <ng-container matColumnDef="balqty">
+                    <mat-header-cell *matHeaderCellDef> BALQTY </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.balqty}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="select">
+                    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+                            (click)="getRowData(element)">select</button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </mat-card>
+
+    </div>
+ 
+

@@ -1,0 +1,91 @@
+<div *ngIf="tabSelected == 'Add'">
+<form (ngSubmit)="save()" [formGroup]="demoForm">
+    <span>
+        <h5>{{name}}</h5>
+    </span>
+    <div>
+        <label>
+           <span >Unit</span> 
+           <span class="colon-center">:</span>
+            <input  type="text" [formControl]="unitValue">
+            <span *ngIf="hasError('unitValue', 'required')">
+                Unit is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+           <span> DL Number </span>
+            <span class="colon-center" style="margin-left: 100px;">:</span>
+            <input type="text" [formControl]="dLNumber">
+            <span *ngIf="hasError('dLNumber', 'required')">
+                DLNumber is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+            Vehicle Number 
+            <span class="colon-center" style="margin-left: 72px;">:</span>
+            <input type="text" [formControl]="vehicleNumber">
+            <span *ngIf="hasError('vehicleNumber', 'required')">
+                Vehicle is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+            Transpoter       
+                 <span class="colon-center" style="margin-left: 104px;">:</span>
+            <input type="text" [formControl]="transporterValue">
+            <span *ngIf="hasError('transporterValue', 'required')">
+                Transpoter is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+            Valid From 
+            <span class="colon-center" style="margin-left:105px;">:</span>
+            <input type="date" [formControl]="validFrom">
+            <span *ngIf="hasError('validFrom', 'required')">
+                ValidFrom is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+            Valid To 
+            <span class="colon-center" style="margin-left: 123px;">:</span>
+            <input type="date" [formControl]="validTo">
+            <span *ngIf="hasError('validTo', 'required')">
+                ValidTo is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+            In Time 
+            <span class="colon-center" style="margin-left: 125px;">:</span>
+            <input type="time" [formControl]="inTime">
+            <span *ngIf="hasError('inTime', 'required')">
+                In Time is required.
+            </span>
+        </label>
+    </div>
+    <div>
+        <label>
+            Out Time 
+            <span class="colon-center" style="margin-left: 114px;">:</span>
+            <input type="time" [formControl]="outTime">
+            <span *ngIf="hasError('outTime', 'required')">
+                Out Time is required.
+            </span>
+        </label>
+    </div>
+    <button type='submit' [disabled]="!demoForm.valid">Save</button>
+</form>
+</div>
+<div *ngIf="tabSelected == 'Edit'">
+edit rocks
+</div>

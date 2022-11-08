@@ -1,0 +1,18 @@
+<div class="vehicle-pass">
+    <span><a>Home</a></span><span> > </span><span><a>Vehicle Module</a></span> <span> ></span> <span><a>Vehicle Pass Entry</a></span>
+</div>
+  <div class="vehicle-pass">
+    
+    <mat-card>
+        <mat-card-content>
+            <nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let link of links"
+                   (click)="activeLink = link;activeTabFun(activeLink)"
+                   [active]="activeLink == link"> {{ link }} </a>
+              </nav>
+         </mat-card-content>
+         <mat-card-content >
+            <app-vehicle-pass-issue [tabSelected]="activeLink"></app-vehicle-pass-issue>
+         </mat-card-content>
+    </mat-card>
+    </div>

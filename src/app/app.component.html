@@ -1,0 +1,68 @@
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Nalco App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 20 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="20">
+      <mat-nav-list>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Vehicle Module
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div style="margin-left:-30px">
+              <ul style="margin-top: -10px;">
+                <li>
+                  <div style="padding: 10px;">
+                    <a routerLink="/vehicle" routerLinkActive="active">Home</a>
+                  </div>
+                
+                </li>
+                <li>
+                  <div style="padding: 10px;">
+                    <a routerLink="/vehicle-pass" routerLinkActive="active">Customers</a>
+                  </div>
+                </li>
+               
+              </ul>
+            </div>
+        </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>Dispatch Module
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div style="margin-left:-30px">
+              <ul style="margin-top: -10px;">
+                <li>
+                  <div style="padding: 10px;">
+                    <a routerLink="/delivery-order" routerLinkActive="active">Delivery Order</a>
+                  </div>
+                
+                </li>
+                <li>
+                  <div style="padding: 10px;">
+                    <a routerLink="/vehicle-pass" routerLinkActive="active">Customers</a>
+                  </div>
+                </li>
+               
+              </ul>
+            </div>
+        </mat-expansion-panel>
+        </mat-accordion>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

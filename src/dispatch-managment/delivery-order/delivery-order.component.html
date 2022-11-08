@@ -1,0 +1,245 @@
+<div class="delivery-order">
+<mat-card>
+    <mat-card-content>
+        <h5>Dispatch Managment</h5>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <label>
+                    <span>Dispatch Date</span>
+                     <span class="colon-center" style="margin-left: 100px;">:</span>
+                     <input type="date" style="width: 184px;" [(ngModel)]="dispatchDate" name="dispatchDate">
+                     
+                 </label>
+            </div>
+            <div class="col-md-6">
+                <label>
+                    <span> Transpoter </span>
+                     <span class="colon-center" style="margin-left: 102px;">:</span>
+                     <select class="form-select form-select-lg mb-3" [(ngModel)]="transporter"  style="height: 30px;width: 184px;" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                 </label>               
+                 </div>
+            <div class="col-md-6">
+                <label>
+                    <span> Vendor Code </span>
+                     <span class="colon-center" style="margin-left: 102px;">:</span>
+                     <select class="form-select form-select-lg mb-3" [(ngModel)]="vendorCode"  style="height: 30px;width: 184px;" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                   
+                 </label>
+            </div>
+            <div class="col-md-6">
+                <label>
+                    <span>Order Number </span>
+                     <span class="colon-center" style="margin-left: 80px;">:</span>
+                     <input type="number" [(ngModel)]="orderNumber">
+                 </label>
+            </div>
+          <div class="col-md-6"></div>
+          <div class="col-md-6 offset-md-9">
+            <span style="margin-left:20px;" *ngIf="modify"><button mat-stroked-button color="primary" (click)="modifyOrder()">Modify Order</button></span>
+            <span style="margin-left:20px;" *ngIf="!modify"><button mat-stroked-button color="primary" (click)="saveOrder()">Save</button></span>
+            <span style="margin-left:20px;"><button mat-stroked-button color="primary" (click)="close()">Close</button></span> 
+
+          </div>
+
+        </div>
+
+    </mat-card-content>
+</mat-card>
+</div>
+<div class="delivery-order">
+    
+
+    <mat-card>
+        <mat-card-content *ngIf="!modify">
+            <mat-card>
+                <h6>Add new Line Item</h6>
+                <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>
+                            <span>Material Code</span>
+                             <span style="margin-left: 40px;margin-right:18px;">:</span>
+                             <input type="text" style="width: 184px;" [(ngModel)]="lineItemMaterialCode" name="lineItemMaterialCode">
+                             
+                         </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>
+                            <span>DQTY</span>
+                            <span style="margin-left: 40px;margin-right:18px;">:</span>
+                             <input type="number" style="width: 184px;" [(ngModel)]="lineItemDqty" name="lineItemDqty">
+                             <span style="margin-left:20px;"><button mat-stroked-button color="primary" (click)="addLineItem(lineItemMaterialCode,lineItemDqty)">Add New Line</button></span>
+
+                         </label>
+                    </div>
+                   
+                </div>
+            </div>
+        </mat-card>
+        </mat-card-content>
+        <mat-card-content>
+            <div class="example-container mat-elevation-z8">
+            <div *ngIf="modify">
+                <mat-table #table [dataSource]="dataSource">
+
+                    <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="slNo">
+                        <mat-header-cell *matHeaderCellDef> SL No.</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> 
+                            {{element.slNo}} </mat-cell>
+                            <!-- <mat-cell *ngIf="!modify" *matCellDef="let element"> 
+                                <mat-form-field>
+                                    <input type="text" matInput [(ngModel)]="element.slNo" />
+                                  </mat-form-field></mat-cell> -->
+                        
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="orderNo">
+                        <mat-header-cell *matHeaderCellDef> Order No </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.orderNo}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="lineItemNo">
+                        <mat-header-cell *matHeaderCellDef> Line Item No</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.lineItemNo}} </mat-cell>
+                    </ng-container>
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="materialCode">
+                        <mat-header-cell *matHeaderCellDef> Material Code </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.materialCode}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="materialDesc">
+                        <mat-header-cell *matHeaderCellDef> Material Desc </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.materialDesc}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="dqty">
+                        <mat-header-cell *matHeaderCellDef> DQty </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.dqty}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="diQty">
+                        <mat-header-cell *matHeaderCellDef> DI Qty </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.diQty}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="bQty">
+                        <mat-header-cell *matHeaderCellDef> BQty</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.bQty}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                        <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> <button mat-stroked-button color="primary">Select</button></mat-cell>
+                    </ng-container>
+                   
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div>
+               
+
+
+            <div *ngIf="!modify">
+                <mat-table #table [dataSource]="dataSource">
+
+                    <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="slNo">
+                        <mat-header-cell *matHeaderCellDef> SL No.</mat-header-cell>
+                        <!-- <mat-cell *matCellDef="let element"> 
+                            {{element.slNo}} </mat-cell> -->
+                            <mat-cell *matCellDef="let element"> 
+                                <mat-form-field>
+                                    <input type="text" matInput [(ngModel)]="element.slNo" />
+                                  </mat-form-field>
+                                </mat-cell>
+                        
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="orderNo">
+                        <mat-header-cell *matHeaderCellDef> Order No </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> 
+                            <mat-form-field>
+                                <input type="text" matInput [(ngModel)]="element.orderNo" />
+                              </mat-form-field> </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="lineItemNo">
+                        <mat-header-cell *matHeaderCellDef> Line Item No</mat-header-cell>
+                        <mat-cell *matCellDef="let element"> <mat-form-field>
+                            <input type="text" matInput [(ngModel)]="element.lineItemNo" />
+                          </mat-form-field></mat-cell>
+                    </ng-container>
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="materialCode">
+                        <mat-header-cell *matHeaderCellDef> Material Code </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> <mat-form-field>
+                            <input type="text" matInput [(ngModel)]="element.materialCode" />
+                          </mat-form-field> </mat-cell>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="materialDesc">
+                        <mat-header-cell *matHeaderCellDef> Material Desc </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> <mat-form-field>
+                            <input type="text" matInput [(ngModel)]="element.materialDesc" />
+                          </mat-form-field></mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="dqty">
+                        <mat-header-cell *matHeaderCellDef> DQty </mat-header-cell>
+                        <mat-cell *matCellDef="let element"><mat-form-field>
+                            <input type="text" matInput [(ngModel)]="element.dqty" />
+                          </mat-form-field> </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="diQty">
+                        <mat-header-cell *matHeaderCellDef> DI Qty </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> <mat-form-field>
+                            <input type="text" matInput [(ngModel)]="element.diQty" />
+                          </mat-form-field> </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="bQty">
+                        <mat-header-cell *matHeaderCellDef> BQty</mat-header-cell>
+                        <mat-cell *matCellDef="let element"><mat-form-field>
+                            <input type="text" matInput [(ngModel)]="element.bQty" />
+                          </mat-form-field></mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="actions">
+                        <mat-header-cell *matHeaderCellDef > Actions </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Save" class="iconbutton"
+                            color="primary" (click)="modifySingleLine(element)">
+                            <mat-icon>save</mat-icon>
+                          </button> 
+                          <button mat-icon-button matTooltip="Click to Delete" class="iconbutton"
+                          (click)="deleteSingleLine(element)" color="warn">
+                          <mat-icon>delete</mat-icon>
+                        </button></mat-cell>
+                      </ng-container>
+                    
+                   
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+            </div>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
