@@ -49,45 +49,50 @@
 <div class="delivery-order">
     <mat-card>
         <mat-card-content>
-            <h5>Dispatch Managment</h5>
+            <h5>Truck Planning List</h5>
             <hr>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="col-md-6" style="display:contents;">
+                        <label>
+                            <span>Dispatch Date</span>
+                            <span class="colon-center">:</span>
+                            <input type="date" style="width:163px;"  [(ngModel)]="dispatchDate" name="dispatchDate">
+    
+                        </label>
+                    </div>
+                    <div class="col-md-6" style="display:contents;">
+                        <label>
+                            <span> Vendor Code </span>
+                            <span class="colon-center" style="margin-left: 7px">:</span>
+                            <select class="form-select form-select-lg mb-3" [(ngModel)]="vendorCode"
+                                style="height: 25px;" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+    
+                        </label>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
                     <label>
-                        <span>Dispatch Date</span>
-                        <span class="colon-center" style="margin-left: 100px;">:</span>
-                        <input type="date" style="width: 184px;" [(ngModel)]="dispatchDate" name="dispatchDate">
-
+                        <span> Total Weight </span>
+                        <span class="colon-center">:</span>
+                        <input type="text" style="width:163px;"  [(ngModel)]="totalWeight" name="totalWeight">
+                        <span style="margin-left: 10px;"><b>KG</b></span>
                     </label>
                 </div>
-                <div class="col-md-6">
-                    <label>
-                        <span> Transpoter </span>
-                        <span class="colon-center" style="margin-left: 102px;">:</span>
-                        <select class="form-select form-select-lg mb-3" [(ngModel)]="transporter"
-                            style="height: 30px;width: 184px;" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </label>
+                <div class="col-md-4">
+                    <span ><button mat-raised-button color="primary"
+                        >Truck Planning</button>
+                       </span>
+                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary"
+                        >Close</button></span>
                 </div>
-                <div class="col-md-6">
-                    <label>
-                        <span> Vendor Code </span>
-                        <span class="colon-center" style="margin-left: 102px;">:</span>
-                        <select class="form-select form-select-lg mb-3" [(ngModel)]="vendorCode"
-                            style="height: 30px;width: 184px;" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-
-                    </label>
-                </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <label>
                         <span>Order Number </span>
                         <span class="colon-center" style="margin-left: 80px;">:</span>
@@ -98,7 +103,7 @@
                 <div class="col-md-6 offset-md-9">
                     <span style="margin-left:20px;"><button mat-stroked-button color="primary"
                             (click)="search()">Search</button></span>
-                </div>
+                </div> -->
 
             </div>
 
@@ -108,9 +113,8 @@
 <div class="delivery-order">
 
 
+    <div class="example-container mat-elevation-z8">
         <mat-card>
-            <mat-card-content>
-                <div class="example-container mat-elevation-z8">
             <mat-table #table [dataSource]="dataSource">
 
                 <!--- Note that these columns can be defined in any order.
@@ -194,10 +198,8 @@
             </mat-table>
 
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-            </div>
-            </mat-card-content>
         </mat-card>
 
-</div>
+    </div>
  
 

@@ -136,13 +136,17 @@ import { VehiclePassIssueComponent } from 'src/vehicle/vehicle-pass-issue/vehicl
 import { VehicleComponent } from 'src/vehicle/vehicle.component';
 import { DeliveryOrderComponent } from 'src/dispatch-managment/delivery-order/delivery-order.component';
 import { ScheduleDeliveryListComponent } from 'src/dispatch-managment/schedule-delivery-list/schedule-delivery-list.component';
+import { TruckPlanningListComponent } from '../dispatch-managment/truck-planning-list/truck-planning-list.component';
+import { TruckPlanningComponent } from 'src/dispatch-managment/truck-planning/truck-planning.component';
 @NgModule({
   declarations: [
     AppComponent,
     VehiclePassIssueComponent,
     VehicleComponent,
     DeliveryOrderComponent,
-    ScheduleDeliveryListComponent
+    ScheduleDeliveryListComponent,
+    TruckPlanningComponent,
+    TruckPlanningListComponent
   ],
   imports: [
     FormsModule,
