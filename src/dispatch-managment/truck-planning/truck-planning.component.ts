@@ -69,6 +69,7 @@ export class TruckPlanningComponent implements OnInit {
   displayedColumns = ['position', 'deliverydate', 'orderno', 'vendorcode','route','transporter','status','doqty','diqty','balqty','select'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   truckSource = new MatTableDataSource<TruckDetails>(TRUCK_DATA);
+  displayMenu= false;
  
   truckDetailsColumns = ['vrTrNo', 'dispatchDate', 'lineItem', 'orderno','vendorname','transMedium','transporter','truckCapacity'];
 
@@ -94,4 +95,7 @@ console.log(event,'myevent');
 this.route.navigateByUrl('delivery-order-modify');
   }
 
+ displayMenuList(){
+   this.displayMenu=true;
+  }
 }

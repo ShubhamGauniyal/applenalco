@@ -132,24 +132,27 @@
                             <select class="form-select form-select-lg mb-3" [(ngModel)]="planningTruckQty"
                                 style="height: 25px;" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
-                                <option value="100">100KG</option>
-                                <option value="200">200KG</option>
-                                <option value="300">300KG</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
 
                         </label>
+                        <div>
+                            <span style="margin-left: 90px;"> <button mat-raised-button color="primary" (click) ="displayMenuList()"
+                            >Select</button></span>
+                        </div>
                     </div>
                     
                 </mat-card>
 
                 </div>
-                <div class="col-md-1 arrow-right" style="flex: 0 0 1%;max-width: 1%;">
+                <div *ngIf="displayMenu" class="col-md-1 arrow-right" style="flex: 0 0 1%;max-width: 1%;">
                 </div>
                 <div class="col-md-7" style="flex: 0 0 63%;max-width:63%">
                    
                     <mat-card-content>
-                        <div class="example-container mat-elevation-z8">
-        
+                        <div *ngIf="displayMenu" class="example-container mat-elevation-z8">
                             
                             <mat-table #table [dataSource]="truckSource">
         
@@ -216,7 +219,9 @@
                        
                     </mat-table>
                 </div>
+            
             </mat-card-content>
+
                 </div>
                 <div class="col-md-1">
                   
