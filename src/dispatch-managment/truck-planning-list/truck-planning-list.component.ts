@@ -40,7 +40,8 @@ export class TruckPlanningListComponent implements OnInit {
   lineItemMaterialCode: string = '';
   vendorCode:string = '';
   orderNumber:number = 1;
-  totalWeight:string ='00000.000'
+  totalWeight:string ='00000.000';
+  modifyPlanning = false;
   
   
   displayedColumns = ['position', 'deliverydate', 'orderno', 'vendorcode','route','transporter','status','doqty','diqty','balqty','select'];
@@ -69,8 +70,10 @@ console.log(event,'myevent');
   }
 
   truckPlanning(){
-    this.route.navigateByUrl('truck-planning-modify');
+    this.modifyPlanning = true;
   }
 
-
+saveModify(){
+  this.modifyPlanning = false;
+}
 }

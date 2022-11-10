@@ -1,50 +1,3 @@
-<!-- <form  mat-raised-button color="primary" (ngSubmit)="save()" [formGroup]="demoForm">
-    <div class="search-form">
-    <div class="form-field-allign">
-        
-        <label class="label" >OrderDispatch Date</label>
-           <span class="colon-center">:</span>
-            <input  type="text" [formControl]="dispatchDateValue">
-            <span class="colon-center" *ngIf="hasError('dispatchDateValue', 'required')">
-                DispatchDate is required.
-            </span>
-        
-    </div>
-    <div class="form-field-allign">
-        
-        <label class="label" >OrderTranspoter</label>
-           <span class="colon-center">:</span>
-            <input  type="text" [formControl]="transpoterValue">
-            <span  class="colon-center" *ngIf="hasError('transpoterValue', 'required')">
-                Transpoter is required.
-            </span>
-      
-    </div>
-    <div class="form-field-allign">
-       
-        <label class="label" >OrderVendor Code</label>
-           <span class="colon-center">:</span>
-            <input  type="text" [formControl]="vendorcodeValue">
-            <span class="colon-center"  *ngIf="hasError('vendorcodeValue', 'required')">
-                vendorcode is required.
-            </span>
-        
-    </div>
-
-    <div class="form-field-allign">
-      
-           <label class="label" >Order Number</label> 
-           <span class="colon-center">:</span>
-            <input  type="text" [formControl]="ordernumberValue">
-            <span class="colon-center"  *ngIf="hasError('ordernumberValue', 'required')">
-                ordernumber is required.
-            </span>
-        
-    </div>
-</div>
-    <button  class="search-button" stype='submit' [disabled]="!demoForm.valid">Search</button>
-   
-</form> -->
 
 <div class="delivery-order">
     <mat-card>
@@ -86,25 +39,14 @@
                     </label>
                 </div>
                 <div class="col-md-4">
-                    <span ><button mat-raised-button color="primary" (click) = "truckPlanning()"
-                        >Truck Planning</button>
+                    <span *ngIf="!modifyPlanning"><button mat-raised-button color="primary" (click) = "truckPlanning()"
+                        >Truck Planning</button></span>
+                        <span *ngIf="modifyPlanning"><button mat-raised-button color="primary" (click) = "saveModify()"
+                            >Save</button>
                        </span>
-                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary"
+                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary" (click) = "saveModify()"
                         >Close</button></span>
                 </div>
-                <!-- <div class="col-md-6">
-                    <label>
-                        <span>Order Number </span>
-                        <span class="colon-center" style="margin-left: 80px;">:</span>
-                        <input type="number" [(ngModel)]="orderNumber">
-                    </label>
-                </div>
-                <div class="col-md-6"></div>
-                <div class="col-md-6 offset-md-9">
-                    <span style="margin-left:20px;"><button mat-stroked-button color="primary"
-                            (click)="search()">Search</button></span>
-                </div> -->
-
             </div>
 
         </mat-card-content>
@@ -112,8 +54,11 @@
 </div>
 <div class="delivery-order">
 
-
+<div>
     <div class="example-container mat-elevation-z8">
+        <mat-card >
+     
+     <mat-card-content [ngClass]="modifyPlanning ? 'col-md-11':'col-md-12'">
         <mat-card>
             <mat-table #table [dataSource]="dataSource">
 
@@ -199,7 +144,21 @@
 
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </mat-card>
+      
+        </mat-card-content>
+        <mat-card-content *ngIf="modifyPlanning">
+            <app-truck-planning></app-truck-planning>
+        </mat-card-content>
+
+        </mat-card>
+   
+     
 
     </div>
+    </div>
+
+
+ </div>   
+
  
 

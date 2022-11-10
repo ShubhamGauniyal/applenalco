@@ -59,10 +59,13 @@ export class TruckPlanningComponent implements OnInit {
   lineItemMaterialCode: string = '';
   vendorCode:string = '';
   orderNumber:number = 1;
-  totalWeight:string ='00000.000'
-  
-  
-  
+  totalWeight:string ='00000.000';
+  planningDispatchOrderNo= null;
+  planningLineItemNo=null;
+  planningTransportationBy = null;
+  plannningTransporterCode = null;
+  planningTruckCapacity = null;
+  planningTruckQty = null;
   displayedColumns = ['position', 'deliverydate', 'orderno', 'vendorcode','route','transporter','status','doqty','diqty','balqty','select'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   truckSource = new MatTableDataSource<TruckDetails>(TRUCK_DATA);

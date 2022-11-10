@@ -138,6 +138,7 @@ import { DeliveryOrderComponent } from 'src/dispatch-managment/delivery-order/de
 import { ScheduleDeliveryListComponent } from 'src/dispatch-managment/schedule-delivery-list/schedule-delivery-list.component';
 import { TruckPlanningListComponent } from '../dispatch-managment/truck-planning-list/truck-planning-list.component';
 import { TruckPlanningComponent } from 'src/dispatch-managment/truck-planning/truck-planning.component';
+import { TwoDigitDecimaNumberDirective } from './two-digit-decima-number-directive.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -146,7 +147,8 @@ import { TruckPlanningComponent } from 'src/dispatch-managment/truck-planning/tr
     DeliveryOrderComponent,
     ScheduleDeliveryListComponent,
     TruckPlanningComponent,
-    TruckPlanningListComponent
+    TruckPlanningListComponent,
+    TwoDigitDecimaNumberDirective
   ],
   imports: [
     FormsModule,
