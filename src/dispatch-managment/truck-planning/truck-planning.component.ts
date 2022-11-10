@@ -38,8 +38,12 @@ const ELEMENT_DATA: Element[] = [
 ];
 
 const TRUCK_DATA: TruckDetails[] = [
-  {vrTrNo: 1, dispatchDate: '22-03-2022', orderno: 1.0079, lineItem: 'H',vendorname:'eska',transMedium:'Truck',transporter:'ddl',truckCapacity:1},
-  {vrTrNo: 2, dispatchDate: '24-09-2022', orderno: 1.79, lineItem: 'G',vendorname:'albama',transMedium:'Train',transporter:'ddc',truckCapacity:34},
+  {vrTrNo: 1, dispatchDate: '22-03-2022', orderno: 121, lineItem: 'A',vendorname:'eska',transMedium:'Truck',transporter:'ddl',truckCapacity:1},
+  {vrTrNo: 2, dispatchDate: '24-09-2022', orderno: 3243, lineItem: 'B',vendorname:'albama',transMedium:'Train',transporter:'ddc',truckCapacity:3},
+  {vrTrNo: 3, dispatchDate: '25-03-2022', orderno: 4345, lineItem: 'C',vendorname:'Albany',transMedium:'Truck',transporter:'dtdc',truckCapacity:2},
+  {vrTrNo: 4, dispatchDate: '26-09-2022', orderno: 1534, lineItem: 'D',vendorname:'Baylor',transMedium:'Train',transporter:'avb',truckCapacity:2},
+  {vrTrNo: 5, dispatchDate: '27-03-2022', orderno: 1646, lineItem: 'E',vendorname:'Boston',transMedium:'Truck',transporter:'apm',truckCapacity:3},
+  {vrTrNo: 6, dispatchDate: '28-09-2022', orderno: 8637, lineItem: 'F',vendorname:'Yale',transMedium:'Train',transporter:'xyz',truckCapacity:5},
  
 ];
 
@@ -71,7 +75,7 @@ export class TruckPlanningComponent implements OnInit {
   truckSource = new MatTableDataSource<TruckDetails>(TRUCK_DATA);
   displayMenu= false;
  
-  truckDetailsColumns = ['vrTrNo', 'dispatchDate', 'lineItem', 'orderno','vendorname','transMedium','transporter','truckCapacity'];
+  truckDetailsColumns = ['vrTrNo', 'dispatchDate', 'lineItem', 'orderno','vendorname','transMedium','transporter','truckCapacity', 'actions'];
 
   
   constructor(private route:Router) {
@@ -97,5 +101,20 @@ this.route.navigateByUrl('delivery-order-modify');
 
  displayMenuList(){
    this.displayMenu=true;
+  }
+
+  deleteTruckDetails(value: TruckDetails) {
+    console.log(value);
+    const data = this.removeObjectWithId(
+      this.truckSource.filteredData,
+      value.vrTrNo
+    );
+    this.truckSource = new MatTableDataSource<TruckDetails>(data);
+  }
+  removeObjectWithId(arr: TruckDetails[], id: number| string) {
+    const objWithIdIndex = arr.findIndex((obj) => obj.vrTrNo === id);
+    arr.splice(objWithIdIndex, 1);
+
+    return arr;
   }
 }
