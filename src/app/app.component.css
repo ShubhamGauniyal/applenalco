@@ -30,7 +30,7 @@ ul li a {
 }
 
 .active{
-  color: #673ab7;
+  color: #b73a3a;
 }
 .vertical-menu {
   width: 200px;
@@ -49,7 +49,7 @@ ul li a {
 }
 
 .vertical-menu a.active {
-  color: #673ab7;
+  color: #b73a3a;
 }
   h1.example-app-name {
     margin-left: 8px;
@@ -70,3 +70,13 @@ ul li a {
   table {
     width: 100%;
   }
+
+  .mat-toolbar.mat-primary {
+    background: #b73a3a;
+    color: #fff;
+}
+
+
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: #b73a3a;
+}

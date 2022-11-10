@@ -10,3 +10,9 @@
     margin-right: 20px;
 }
 
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #b73a3a;
+  }
+  .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+    color: #b73a3a;
+}

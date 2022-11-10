@@ -65,7 +65,11 @@ export class TruckPlanningListComponent implements OnInit {
 
   getRowData(event: Event){
 console.log(event,'myevent');
-this.route.navigateByUrl('truck-planning-modify');
+//this.route.navigateByUrl('truck-planning-modify');
+  }
+
+  truckPlanning(){
+    this.route.navigateByUrl('truck-planning-modify');
   }
 
 
