@@ -44,7 +44,7 @@
                         <span *ngIf="modifyPlanning"><button mat-raised-button color="primary" (click) = "saveModify()"
                             >Save</button>
                        </span>
-                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary" (click) = "saveModify()"
+                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary" (click) = "closeButton()"
                         >Close</button></span>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                 <ng-container matColumnDef="select">
                     <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
-                            (click)="getRowData(element)">select</button>
+                            (click)="selectedList(element)">select</button>
                     </mat-cell>
                 </ng-container>
 
