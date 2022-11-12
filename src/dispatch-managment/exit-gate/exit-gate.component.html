@@ -1,0 +1,124 @@
+
+<div class="delivery-order">
+    <mat-card style="margin: 5px;">
+        <mat-card-content>
+            <h5>Exit Gate</h5>
+            <hr>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="">
+                        <label>
+                            <span>Dispatch Date</span>
+                            <span class="colon-center">:</span>
+                            <input type="date" style="width:163px;"  [(ngModel)]="dispatchDate" name="dispatchDate">
+    
+                        </label>
+                    </div>
+                    <div class="">
+                        <label>
+                            <span style="margin-right: 18px;"> RFID TAG </span>
+                            <span class="colon-center" style="margin-left: 7px">:</span>
+                            <input type="text" style="width:163px;"  [(ngModel)]="rfidTag" name="rfidTag">
+                        </label>
+                        <span style="margin-left: 10px; display: inline-block;"><p>(Auto Scan by RFID Reader)</p></span>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                    <span><button mat-raised-button color="primary" (click) = "BoombarrierOpen()"
+                        >Open Boombarrier</button></span>
+                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary" (click) = "closeButton()"
+                        >Close</button></span>
+                </div>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+<div>
+    <div class="example-container mat-elevation-z8">
+    <mat-card style="margin: 5px;">
+     <div class="row">
+        <div class="col-4">  
+    <div>
+        <label>
+            <span >Truck Number</span> 
+            <span class="colon-center" style="margin-left: 22px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >Driver Name</span> 
+            <span class="colon-center" style="margin-left: 34px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >TARE Weight</span> 
+            <span class="colon-center" style="margin-left: 31px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >GROSS Weight</span> 
+            <span class="colon-center" style="margin-left: 22px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >Truck IN-TIME</span> 
+            <span class="colon-center" style="margin-left: 25px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >Truck OUT-TIME</span> 
+            <span class="colon-center" style="margin-left: 14px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >Vendor Code <Code></Code></span> 
+            <span class="colon-center" style="margin-left: 30px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >Route</span> 
+            <span class="colon-center" style="margin-left: 77px;">:</span>
+            <input  type="text">
+        </label>
+     </div>
+     <div>
+        <label>
+            <span >Transporter Name</span> 
+            <span class="colon-center">:</span>
+            <input  type="text">
+        </label>
+     </div>
+    </div>
+    <div class="col-8">
+        <div>
+        <label style="display: block;">Dispatch Order Numbers(s)</label>
+        <textarea rows="3" cols="100"></textarea>
+        </div>
+        <div style="margin-top: 10px;">
+            <label style="display: block;">DRIVER HAS RECEIVED THE PHYSICAL COPY OF BELOW DOCUMENTS</label>
+            <hr style="border-top: 3px solid black;margin-right: 90px; margin-top: 0px;" >
+        </div>
+        <div>
+            <mat-slide-toggle>Slide me!</mat-slide-toggle>
+        </div>
+    </div>  
+</div>   
+</mat-card>
+</div>
+</div>
+    

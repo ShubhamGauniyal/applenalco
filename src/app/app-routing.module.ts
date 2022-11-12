@@ -7,6 +7,7 @@ import { TruckPlanningComponent } from 'src/dispatch-managment/truck-planning/tr
 import { VehiclePassIssueComponent } from 'src/vehicle/vehicle-pass-issue/vehicle-pass-issue.component';
 import { VehicleComponent } from 'src/vehicle/vehicle.component';
 import { AppComponent } from './app.component';
+import { ExitGateComponent } from "../dispatch-managment/exit-gate/exit-gate.component";
 
 const routes: Routes = [
   { path: 'vehicle', component: VehicleComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'delivery-order',component:ScheduleDeliveryListComponent},
   {path:'delivery-order-modify',component:DeliveryOrderComponent},
   {path:'truck-planning-list',component:TruckPlanningListComponent},
-  {path:'truck-planning-modify',component:TruckPlanningComponent}
+  {path:'truck-planning-modify',component:TruckPlanningComponent},
+  {path:'exit-gate',component:ExitGateComponent}
   
 ];
 

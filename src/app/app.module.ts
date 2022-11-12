@@ -139,6 +139,7 @@ import { ScheduleDeliveryListComponent } from 'src/dispatch-managment/schedule-d
 import { TruckPlanningListComponent } from '../dispatch-managment/truck-planning-list/truck-planning-list.component';
 import { TruckPlanningComponent } from 'src/dispatch-managment/truck-planning/truck-planning.component';
 import { TwoDigitDecimaNumberDirective } from './two-digit-decima-number-directive.directive';
+import { ExitGateComponent } from '../dispatch-managment/exit-gate/exit-gate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -148,7 +149,8 @@ import { TwoDigitDecimaNumberDirective } from './two-digit-decima-number-directi
     ScheduleDeliveryListComponent,
     TruckPlanningComponent,
     TruckPlanningListComponent,
-    TwoDigitDecimaNumberDirective
+    TwoDigitDecimaNumberDirective,
+    ExitGateComponent
   ],
   imports: [
     FormsModule,
