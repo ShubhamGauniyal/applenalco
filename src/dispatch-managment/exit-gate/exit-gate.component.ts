@@ -9,7 +9,10 @@ export class ExitGateComponent implements OnInit {
 
   dispatchDate: Date = new Date();
   rfidTag:string ='AbC1234';
-
+  deliveryOrderDoc_No:boolean = true;
+  shipment_No:boolean = true;
+  invoice_No:boolean = true;
+  subByDriver:boolean = false;
   constructor() { }
 
   ngOnInit(): void {

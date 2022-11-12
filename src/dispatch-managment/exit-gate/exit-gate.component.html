@@ -25,9 +25,9 @@
                     
                 </div>
                 <div class="col-md-4">
-                    <span><button mat-raised-button color="primary" (click) = "BoombarrierOpen()"
+                    <span><button mat-raised-button (click) = "BoombarrierOpen()"
                         >Open Boombarrier</button></span>
-                       <span style="margin-left: 20px;"> <button mat-raised-button color="primary" (click) = "closeButton()"
+                       <span style="margin-left: 20px;"> <button mat-raised-button  (click) = "closeButton()"
                         >Close</button></span>
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <input  type="text">
         </label>
      </div>
-     <div>
+     <div style="margin-top: 10px;">
         <label>
             <span >GROSS Weight</span> 
             <span class="colon-center" style="margin-left: 22px;">:</span>
@@ -82,7 +82,7 @@
             <input  type="text">
         </label>
      </div>
-     <div>
+     <div style="margin-top:10px">
         <label>
             <span >Vendor Code <Code></Code></span> 
             <span class="colon-center" style="margin-left: 30px;">:</span>
@@ -107,14 +107,48 @@
     <div class="col-8">
         <div>
         <label style="display: block;">Dispatch Order Numbers(s)</label>
-        <textarea rows="3" cols="100"></textarea>
+        <textarea rows="3" cols="90"></textarea>
         </div>
         <div style="margin-top: 10px;">
             <label style="display: block;">DRIVER HAS RECEIVED THE PHYSICAL COPY OF BELOW DOCUMENTS</label>
             <hr style="border-top: 3px solid black;margin-right: 90px; margin-top: 0px;" >
         </div>
         <div>
-            <mat-slide-toggle>Slide me!</mat-slide-toggle>
+            <label>
+            <span >Delivery Order Document No</span> 
+            <span class="colon-center" style="margin-left: 10px;">:</span>
+            </label>
+            <mat-slide-toggle style="position: absolute;" [checked]="deliveryOrderDoc_No"></mat-slide-toggle>
+        </div>
+        <div>
+            <label>
+            <span >Shipment Number</span> 
+            <span class="colon-center" style="margin-left: 73px;">:</span>
+            </label>
+            <mat-slide-toggle style="position: absolute;" [checked]="shipment_No"></mat-slide-toggle>
+        </div>
+        <div>
+            <label>
+            <span >Invoice Number</span> 
+            <span class="colon-center" style="margin-left: 87px;">:</span>
+            </label>
+            <mat-slide-toggle style="position: absolute;" [checked]="invoice_No"></mat-slide-toggle>
+        </div>
+        <hr style="border-top: 1px solid black;margin-right: 90px; margin-top: 0px;" >
+        <div>
+            <label>
+            <span >RFID TAG Submitted by Driver</span> 
+            <span class="colon-center">:</span>
+            </label>
+            <mat-slide-toggle style="position: absolute;" [checked]="subByDriver"></mat-slide-toggle>
+        </div>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-12">
+                <input  type="text" style="display:block; float: right; margin-right: 95px;">
+            </div>
+            <div class="col-12">
+                <label style="float:right; margin-right: 85px;">Checked & Received By CISF</label>
+            </div>
         </div>
     </div>  
 </div>   
