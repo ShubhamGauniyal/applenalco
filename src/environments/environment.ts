@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  getDelivryOrder:"http://127.0.0.1:5000/delivery/get_delivery_order",
+  get_truck_planning_orders:"http://127.0.0.1:5000/delivery/get_truck_planning_orders",
   production: false
 };
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { ApiDataService } from "../../services/api-data.service";
 export interface Element {
   deliverydate: string;
   position: number;
@@ -62,7 +63,7 @@ export class TruckPlanningListComponent implements OnInit {
 selectedElement: Element[] = [];
 
   
-  constructor(private route:Router) {
+  constructor(private route:Router,public dataService:ApiDataService) {
     
    }
 
@@ -86,6 +87,13 @@ console.log(event,'myevent');
   truckPlanning(){
     this.modifyPlanning = true;
     this.dataSource = new MatTableDataSource<Element>(this.selectedElement);
+    console.log("dispatchDate = "+this.dispatchDate+" Transporter = "+this.transporter+" Vendor Code = "+this.vendorCode+" Order Number = "+this.orderNumber)
+    this.dataService.getTruckPlanOrders(this.dispatchDate.toString(),this.vendorCode)
+    // .subscribe(data =>{
+    //   if(data.status == 200){
+    //     console.log(data.data);
+    //   }
+    // })
   }
 
 saveModify(){

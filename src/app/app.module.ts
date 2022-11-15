@@ -140,6 +140,9 @@ import { TruckPlanningListComponent } from '../dispatch-managment/truck-planning
 import { TruckPlanningComponent } from 'src/dispatch-managment/truck-planning/truck-planning.component';
 import { TwoDigitDecimaNumberDirective } from './two-digit-decima-number-directive.directive';
 import { ExitGateComponent } from '../dispatch-managment/exit-gate/exit-gate.component';
+import { ApiDataService } from "../services/api-data.service";
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -196,9 +199,10 @@ import { ExitGateComponent } from '../dispatch-managment/exit-gate/exit-gate.com
     MatTooltipModule,
     MatTreeModule,
     PortalModule,
-    ScrollingModule
+    ScrollingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
